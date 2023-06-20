@@ -35,3 +35,20 @@ Nuevas acciones pueden agregarse a futuro, queremos que se puedan agregar o quit
 - Debe resolver los 3 puntos, marcando explícitamente los métodos donde comienzan cada uno de ellos. Para el punto 1, se pide que implemente los criterios marqueras, combinetas y uno de los 3 restantes.
 - Realice un diagrama de clases de la solución general.
 - Explique brevemente qué ideas de diseño surgieron, qué alternativas surgieron y por qué se decidió por la solución que presentó.
+
+# Diagrama de flujo:
+
+![](modeloParcialNavidadALGO2.png)
+
+# Explicaicon de diseño:
+
+## Patrones encontrados:
+
+- estrategy (class Persona)
+- Composite (interface Preferenicas)
+- template Method (abstract class Regalos)
+- Observer (Acciones)
+
+# Timepo completo de desarrollo
+
+![](timeParcial.png)

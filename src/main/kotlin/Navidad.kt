@@ -15,6 +15,7 @@ object PAPANOEL{
         registrarRegaloEntregado(persona,REGALO_PARA_PERSONA)
     }
     fun registrarRegaloEntregado(persona: Personas,regalo: Regalos){
+        validarRegaloEntregadoAntesDeRegistrar(regalo)
         registroRegalados.add(regalo)
         acciones.forEach { it.ejecutar(persona,regalo) }
     }
@@ -32,6 +33,11 @@ object PAPANOEL{
     fun validarDesactivarAccion(accion: Acciones){
         if (acciones.contains(accion)){
             throw Exception("Para desactivar la accion debe habrse activado con anterioridad")
+        }
+    }
+    fun validarRegaloEntregadoAntesDeRegistrar(regalo:Regalos){
+        if(regalosEnStock.contains(regalo)){
+            throw Exception("El regalo que queire registrar como entrregado no a sido entregado")
         }
     }
 }
@@ -123,7 +129,6 @@ class Combinetas():Preferencias{
     override fun aceptaRegalo(regalo: Regalos) = preferencias.any { it.aceptaRegalo(regalo) }
 
 }
-//TODO: codear las otras preferencias
 
 abstract class Regalos(var precio:Double, val marca: String,) {
     val CODIGO = Regalos::class.toString()
