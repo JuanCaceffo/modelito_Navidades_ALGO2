@@ -12,7 +12,7 @@ object PAPANOEL{
         val REGALO_PARA_PERSONA = encontrarRegaloPara(persona)
         persona.recibirRegalo(REGALO_PARA_PERSONA)
         borrarRegalo(REGALO_PARA_PERSONA)
-
+        registrarRegaloEntregado(persona,REGALO_PARA_PERSONA)
     }
     fun registrarRegaloEntregado(persona: Personas,regalo: Regalos){
         registroRegalados.add(regalo)
@@ -106,6 +106,10 @@ class Interesadas(var umbralDinero: Double = 8000.0):Preferencias{
     fun setUmbralDinero(umbral:Double){
         umbralDinero = umbral
     }
+
+}
+class Exigentes():Preferencias{
+    override fun aceptaRegalo(regalo: Regalos) = regalo.esValioso()
 
 }
 class Marqueras(var marcaDeInteres:String):Preferencias{
